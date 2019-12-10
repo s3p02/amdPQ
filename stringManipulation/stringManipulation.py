@@ -1,4 +1,5 @@
 import logging
+from charTracker import charTracker as ct
 
 class stringManipulation:
     __charCache = ""
@@ -16,7 +17,7 @@ class stringManipulation:
             logging.debug("CLASS stringManipulation - METHOD __checkThreshold - count > threshold : {0} < {1}".format(count,self.threshold))
             return self.threshold
     def __getCache(self):
-        prevChar = charTracker(self.inputString[0],1)
+        prevChar = ct.charTracker(self.inputString[0],1)
         logging.debug("CLASS stringManipulation - METHOD __getCache - BEGIN! prevChar => {0}:{1}".format(prevChar.char,prevChar.count))
         for character in range(1,len(self.inputString),1):
             logging.debug("CLASS stringManipulation - METHOD __getCache - Iteration:{0} prevChar => {1}:{2}".format(character,prevChar.char,prevChar.count))
@@ -29,7 +30,7 @@ class stringManipulation:
             else:
                 self.__charCache += "z"+prevChar.char+str(self.__checkThreshold(prevChar.count))
                 logging.debug("CLASS stringManipulation - METHOD __getCache - Not-Matching! __charCache : {}".format(self.__charCache))
-                prevChar = charTracker(currChar,1)
+                prevChar = ct.charTracker(currChar,1)
                 logging.debug("CLASS stringManipulation - METHOD __getCache - Not-Matching! prevChar:prevCharCount => {0}:{1}".format(prevChar.char,prevChar.count))
         self.__charCache += "z"+prevChar.char+str(self.__checkThreshold(prevChar.count))
         logging.debug("CLASS stringManipulation - METHOD __getCache - END! __charCache : {}".format(self.__charCache))
