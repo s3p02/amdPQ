@@ -12,6 +12,10 @@ outputString = "za2ze7zb1zc1zd1zf2"
 ```virtualenv -p /usr/local/bin/python3 py3env```
 
 
-Using Python 3.7.0
+Using Python 3.7.0 - ```source ../py3env/bin/activate```
 
+```coverage run main.py```
+![Main Program Run](program_run.png)
 
+```coverage report -m```
+![Code Coverage](code_coverage_report.png)
