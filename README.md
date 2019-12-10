@@ -1,4 +1,4 @@
-## Write a program that program behaves like this:
+## Write a program that behaves like this:
 
 aaeeeeebcdffff -> aaze5bcdzf4
 
