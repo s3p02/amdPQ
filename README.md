@@ -8,3 +8,10 @@ inputString = "aaeeeeeeebcdff"
 outputString = "za2ze7zb1zc1zd1zf2"
 
 ## Write a program that performs this encoding
+
+```virtualenv -p /usr/local/bin/python3 py3env```
+
+
+Using Python 3.7.0
+
+
