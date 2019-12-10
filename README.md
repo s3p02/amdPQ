@@ -12,6 +12,8 @@ aertttefze -> aerzt3efze
 
 Using Python 3.7.0 - ```source ../py3env/bin/activate```
 
+```pip install -r requirements.txt```
+
 ```coverage run main.py```
 
 ![Main Program Run](program_run.png)
