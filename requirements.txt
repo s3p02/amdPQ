@@ -1,0 +1,3 @@
+coverage==4.5.4
+pycodestyle==2.5.0
+virtualenv==16.0.0
