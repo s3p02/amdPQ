@@ -1,4 +1,4 @@
-name := "scalaPractice"
+name := "scalaProject"
 
 version := "0.1"
 
