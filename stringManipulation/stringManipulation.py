@@ -19,6 +19,18 @@ class stringManipulation:
         else:
             logging.debug("CLASS stringManipulation - METHOD __checkThreshold - count > threshold : {0} < {1}".format(count, self.threshold))
             return self.threshold
+    
+    def __repeatAndReturnChar(self,char,charCount):
+        logging.debug("CLASS stringManipulation - METHOD __repeatAndReturnChar - char:{0} - charCount:{1}".format(char, charCount))
+        returnChar = ''.join([ichar*charCount for ichar in char])
+        logging.debug("CLASS stringManipulation - METHOD __repeatAndReturnChar - returnChar:{}".format(returnChar))
+        return returnChar
+
+    def __finalCharCheck(self,char,threshold):
+        if threshold <= 2:
+            return self.__repeatAndReturnChar(char,threshold)
+        else:
+            return "z"+char+str(threshold)
 
     def __getCache(self):
         prevChar = ct.charTracker(self.inputString[0],1)
@@ -32,11 +44,15 @@ class stringManipulation:
                 prevChar.count += 1
                 logging.debug("CLASS stringManipulation - METHOD __getCache - Matching! prevChar:prevCharCount : {0} == {1}".format(prevChar.char, prevChar.count))
             else:
-                self.__charCache += "z"+prevChar.char+str(self.__checkThreshold(prevChar.count))
+                if prevChar.count <= 2:
+                    self.__charCache += self.__repeatAndReturnChar(prevChar.char,prevChar.count)
+                else:
+                    self.__charCache += "z"+prevChar.char+str(self.__checkThreshold(prevChar.count))
                 logging.debug("CLASS stringManipulation - METHOD __getCache - Not-Matching! __charCache : {}".format(self.__charCache))
                 prevChar = ct.charTracker(currChar, 1)
                 logging.debug("CLASS stringManipulation - METHOD __getCache - Not-Matching! prevChar:prevCharCount => {0}:{1}".format(prevChar.char, prevChar.count))
-        self.__charCache += "z"+prevChar.char+str(self.__checkThreshold(prevChar.count))
+        fCharThresholdCheck = self.__checkThreshold(prevChar.count)
+        self.__charCache += self.__finalCharCheck(prevChar.char,fCharThresholdCheck)
         logging.debug("CLASS stringManipulation - METHOD __getCache - END! __charCache : {}".format(self.__charCache))
 
     def get(self):
