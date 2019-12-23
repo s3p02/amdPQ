@@ -62,7 +62,7 @@ class stringManipulation:
                 else:
                     self.__charCache += "z"+prevChar.char+str(self.__checkThreshold(prevChar.count))
                     __cm6 = "stringManipulation - Not-Matching! {}"
-                logging.debug(__cm6.format(self.__charCache))
+                    logging.debug(__cm6.format(self.__charCache))
                 prevChar = ct.charTracker(currChar, 1)
                 __cm7 = "stringManipulation - Not-Matching! {0}({1})"
                 logging.debug(__cm7.format(prevChar.char, prevChar.count))

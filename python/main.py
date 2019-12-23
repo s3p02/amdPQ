@@ -8,7 +8,7 @@ def main():
     for str in inputString:
         __result = encoder.stringManipulation(str).get()
         __stdOutMessage = "INPUT: {0} --> OUTPUT: {1}"
-        print(__stdOutMessage.format(str, __result))
+        logging.info(__stdOutMessage.format(str, __result))
 
 
 if __name__ == "__main__":
