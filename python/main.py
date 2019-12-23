@@ -6,7 +6,9 @@ from stringManipulation import stringManipulation as encoder
 def main():
     inputString = ["aaeeeeebcdffff", "aefrtdddggg", "aertttefze"]
     for str in inputString:
-        print("INPUT: {0} --> OUTPUT: {1}".format(str, encoder.stringManipulation(str).get()))
+        __result = encoder.stringManipulation(str).get()
+        __stdOutMessage = "INPUT: {0} --> OUTPUT: {1}"
+        print(__stdOutMessage.format(str, __result))
 
 
 if __name__ == "__main__":
